@@ -1,0 +1,43 @@
+﻿@model _2001230977_PhanThanhTri_Buoi06.ViewsModel.HoaDon_Full_Model
+
+<main class="container mt-4">
+    <h2 class="text-center mb-4">Lịch sử hóa đơn</h2>
+    <div class="row">
+        <div class="col-md-4 border-end">
+            <h4>Danh sách hóa đơn</h4>
+            @foreach (var hd in Model.DSHD)
+            {
+                <p>
+                    @Html.ActionLink("Hóa đơn: " + hd.mahoadon + " (" + hd.ngaytao.ToShortDateString() + ")","ChiTietHoaDon",new { maHD = hd.mahoadon },new { @class = "text-decoration-none" })
+                </p>
+            }
+        </div>
+        <div class="col-md-8">
+            <h4>Chi tiết hóa đơn</h4>
+            @if (Model.DSCT== null || !Model.DSCT.Any())
+            {
+                <p class="text-muted">Chọn hóa đơn để xem chi tiết.</p>
+            }
+            else
+            {
+                <table class="table table-bordered text-center">
+                    <thead class="table-success">
+                        <tr>
+                            <th>Mã SP</th>
+                            <th>Số lượng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ct in Model.DSCT)
+                        {
+                            <tr>
+                                <td>@ct.masp</td>
+                                <td>@ct.soluong</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</main>

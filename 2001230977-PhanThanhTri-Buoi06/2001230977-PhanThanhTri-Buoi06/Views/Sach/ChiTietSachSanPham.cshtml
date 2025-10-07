@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "ChiTietSachSanPham";
+}
+@model _2001230977_PhanThanhTri_Buoi06.Models.SanPham
+<main>
+    <div class="container">
+        <div class="product-detail">
+            <div class="product-image">
+                <img src="@Url.Content(@Model.hinh)" class="card-img-top" style="height:200px;object-fit:cover;" id="detail-image" alt="Sản phẩm" />
+            </div>
+            <div class="product-info">
+                <h1 id="detail-title" class="product-title">@Model.tensp</h1>
+                <p id="detail-price" class="product-price">@Model.gia</p>
+                <p id="detail-description" class="product-description">
+                    @Model.ghichu
+                </p>
+
+                <div class="product-actions">
+                    <button class="btn-buy">Mua Ngay</button>
+                    <a href="@Url.Action("Xuat_SanPham_Loai", "Sach")" class="btn btn-secondary">Quay Lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

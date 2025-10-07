@@ -1,0 +1,38 @@
+﻿@model _2001230977_PhanThanhTri_Buoi06.ViewsModel.SanPham_Loai_Model
+@{
+    ViewBag.Title = "Tìm kiếm theo giá";
+}
+
+<h2 style="text-align:center;">TÌM KIẾM THEO GIÁ</h2>
+
+<form method="post" action="/Sach/TimKiemTheoGia" style="text-align:center; margin:20px;">
+    <label>Giá từ:</label>
+    <input type="number" name="GiaTu" value="@Model.GiaTu" style="width:100px;" />
+    <label>Đến:</label>
+    <input type="number" name="GiaDen" value="@Model.GiaDen" style="width:100px;" />
+    <button type="submit" class="btn btn-success">Tìm kiếm</button>
+</form>
+
+<hr />
+
+<div class="row row-cols-1 row-cols-md-4 g-4" style="padding:20px;">
+    @if (Model.DSSP != null && Model.DSSP.Count > 0)
+    {
+        foreach (var sp in Model.DSSP)
+        {
+            <div class="col">
+                <div class="card">
+                    <img src="@Url.Content(sp.hinh)" class="card-img-top" style="height:250px; object-fit:cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@sp.tensp</h5>
+                        <p class="card-text">@sp.gia.ToString("N0") ₫</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p style="text-align:center; color:red;">Không có sản phẩm trong khoảng giá này.</p>
+    }
+</div>

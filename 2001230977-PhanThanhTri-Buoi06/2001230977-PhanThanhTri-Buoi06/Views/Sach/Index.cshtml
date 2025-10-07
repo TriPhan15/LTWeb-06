@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable <_2001230977_PhanThanhTri_Buoi06.Models.Loai>
+
+    <div class="row rows-cols-1 row-cols-2 g-4">
+        <div class="col-3">
+
+        </div>
+    </div>
+    <div class="col-9">
+    <table>
+        @foreach (var n in Model)
+        {
+            <tr>
+                <td>
+                    @n.tenloai
+
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>
+
